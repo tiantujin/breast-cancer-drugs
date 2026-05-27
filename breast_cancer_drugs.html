@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>土土金的乳腺癌药物库 | 化疗·内分泌·免疫·ADC·靶向·细胞治疗</title>
+    <style>
+        :root {
+            --sage: #8fae8b;
+            --sage-light: #c8dbc8;
+            --sage-dark: #6b8c6b;
+            --rose: #c19a9a;
+            --rose-light: #e8cfcf;
+            --blue-gray: #7d9aaa;
+            --blue-gray-light: #b0c4cc;
+            --taupe: #9d9088;
+            --taupe-light: #d0c8c0;
+            --lavender: #a89abf;
+            --lavender-light: #d8cff0;
+            --cream: #f4ede6;
+            --cream-dark: #e8dfd6;
+            --charcoal: #4a4a4a;
+            --text: #3d3830;
+            --text-light: #7a746c;
+            --divider: #e0d8d0;
+
+            --chemo: #c19a9a;
+            --endo: #8fae8b;
+            --immuno: #a89abf;
+            --adc: #d4a574;
+            --target: #7d9aaa;
+            --cell: #b08070;
+            --bg: #f7f4f0;
+            --card: #ffffff;
+            --card-hover: #faf8f5;
+            --shadow: 0 3px 16px rgba(90,75,60,0.08);
+            --shadow-hover: 0 6px 28px rgba(90,75,60,0.14);
+            --radius: 14px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body {
+            font-family:'PingFang SC','Microsoft YaHei',Helvetica,Arial,sans-serif;
+            background:var(--bg); color:var(--text); line-height:1.85;
+            -webkit-font-smoothing:antialiased;
+        }
+
+        /* ── HEADER ── */
+        .site-header {
+            background: linear-gradient(145deg, #7a9a6b, #5e7e58);
+            color:#fff; padding:64px 40px 52px; text-align:center;
+            position:relative;
+        }
+        .site-header::after {
+            content:''; position:absolute; bottom:-24px; left:0; right:0; height:48px;
+            background:var(--bg); border-radius:50% 50% 0 0;
+        }
+        .site-header .icon-flower {
+            width:56px; height:56px; margin:0 auto 18px; opacity:0.9;
+        }
+        .site-header h1 {
+            font-size:2.6em; font-weight:700; letter-spacing:0.06em; margin-bottom:10px;
+            text-shadow:0 2px 8px rgba(0,0,0,0.15);
+        }
+        .site-header .subtitle {
+            font-size:1.05em; opacity:0.85; max-width:600px; margin:0 auto 24px;
+            letter-spacing:0.04em;
+        }
+        .badges { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
+        .badge {
+            display:inline-block; padding:5px 16px; border-radius:30px;
+            font-size:0.78em; font-weight:600; letter-spacing:0.04em;
+            backdrop-filter:blur(8px);
+        }
+        .badge-chemo { background:rgba(193,154,154,0.3); border:1px solid rgba(193,154,154,0.6); color:#fff5f5; }
+        .badge-endo { background:rgba(143,174,139,0.3); border:1px solid rgba(143,174,139,0.6); color:#f0fff0; }
+        .badge-immuno { background:rgba(168,154,191,0.3); border:1px solid rgba(168,154,191,0.6); color:#f5f0ff; }
+        .badge-adc { background:rgba(212,165,116,0.3); border:1px solid rgba(212,165,116,0.6); color:#fff8f0; }
+        .badge-target { background:rgba(125,154,170,0.3); border:1px solid rgba(125,154,170,0.6); color:#f0f6f8; }
+        .badge-cell { background:rgba(176,128,112,0.3); border:1px solid rgba(176,128,112,0.6); color:#fff5f2; }
+
+        /* ── LAYOUT ── */
+        .container { max-width:1180px; margin:0 auto; padding:40px 20px 60px; }
+
+        /* ── INTRO CARD ── */
+        .intro-card {
+            background:var(--card); border-radius:var(--radius); padding:28px 34px;
+            box-shadow:var(--shadow); margin-bottom:32px; border:1px solid var(--divider);
+        }
+        .intro-card p { font-size:0.92em; color:var(--text-light); margin-bottom:10px; }
+        .intro-card p:last-child { margin-bottom:0; }
+
+        /* ── NAVIGATION ── */
+        .nav-grid {
+            display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:10px;
+            margin-bottom:32px;
+        }
+        .nav-card {
+            display:flex; align-items:center; gap:14px; padding:18px 20px;
+            background:var(--card); border-radius:var(--radius); border:1px solid var(--divider);
+            text-decoration:none; color:var(--text);
+            transition:all 0.2s; cursor:pointer;
+            box-shadow:var(--shadow);
+        }
+        .nav-card:hover {
+            transform:translateY(-2px); box-shadow:var(--shadow-hover);
+            border-color:transparent;
+        }
+        .nav-card .icon {
+            width:46px; height:46px; border-radius:12px;
+            display:flex; align-items:center; justify-content:center; font-size:1.4em;
+            flex-shrink:0;
+        }
+        .nav-card.chemo .icon { background:linear-gradient(135deg,#c19a9a,#b08080); }
+        .nav-card.endo .icon { background:linear-gradient(135deg,#8fae8b,#7a9a6b); }
+        .nav-card.immuno .icon { background:linear-gradient(135deg,#a89abf,#9689af); }
+        .nav-card.adc .icon { background:linear-gradient(135deg,#d4a574,#c49564); }
+        .nav-card.target .icon { background:linear-gradient(135deg,#7d9aaa,#6d8a9a); }
+        .nav-card.cell .icon { background:linear-gradient(135deg,#b08070,#a07060); }
+        .nav-card h3 { font-size:1.0em; font-weight:700; margin-bottom:2px; }
+        .nav-card span { font-size:0.78em; color:var(--text-light); }
+
+        /* ── SECTION ── */
+        .section {
+            background:var(--card); border-radius:var(--radius); margin-bottom:28px;
+            box-shadow:var(--shadow); overflow:hidden; border:1px solid var(--divider);
+        }
+        .section-head {
+            display:flex; align-items:center; gap:16px; padding:22px 28px;
+            border-bottom:1px solid var(--divider);
+        }
+        .section-head .ic {
+            width:52px; height:52px; border-radius:14px; display:flex;
+            align-items:center; justify-content:center; font-size:1.5em; flex-shrink:0;
+        }
+        .section-head.chemo .ic { background:linear-gradient(135deg,#c19a9a,#b08080); }
+        .section-head.endo .ic { background:linear-gradient(135deg,#8fae8b,#7a9a6b); }
+        .section-head.immuno .ic { background:linear-gradient(135deg,#a89abf,#9689af); }
+        .section-head.adc .ic { background:linear-gradient(135deg,#d4a574,#c49564); }
+        .section-head.target .ic { background:linear-gradient(135deg,#7d9aaa,#6d8a9a); }
+        .section-head.cell .ic { background:linear-gradient(135deg,#b08070,#a07060); }
+        .section-head h2 { font-size:1.3em; font-weight:700; margin-bottom:2px; }
+        .section-head p { font-size:0.82em; color:var(--text-light); margin:0; }
+        .section-body { padding:24px 28px 32px; }
+
+        /* ── SUBSECTION ── */
+        .subsection { margin-bottom:36px; }
+        .subsection:last-child { margin-bottom:0; }
+        .sub-title {
+            font-size:1.08em; font-weight:700; color:var(--text); margin-bottom:18px;
+            padding-bottom:10px; border-bottom:2px solid var(--divider);
+            display:flex; align-items:center; gap:8px;
+        }
+        .sub-title::before { content:''; width:5px; height:18px; border-radius:3px; }
+        .chemo .sub-title::before { background:var(--chemo); }
+        .endo .sub-title::before { background:var(--endo); }
+        .immuno .sub-title::before { background:var(--immuno); }
+        .adc .sub-title::before { background:var(--adc); }
+        .target .sub-title::before { background:var(--target); }
+        .cell .sub-title::before { background:var(--cell); }
+
+        /* ── DRUG CARD ── */
+        .drug-card {
+            border:1px solid var(--divider); border-radius:12px; margin-bottom:16px;
+            overflow:hidden; transition:box-shadow 0.2s;
+            background:#fefefe;
+        }
+        .drug-card:hover { box-shadow:var(--shadow); }
+        .drug-head {
+            display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+            padding:16px 20px; cursor:pointer;
+            background: linear-gradient(to right, rgba(143,137,128,0.03), transparent);
+        }
+        .drug-head .tag {
+            padding:3px 12px; border-radius:20px; font-size:0.72em; font-weight:700;
+            letter-spacing:0.05em; flex-shrink:0;
+        }
+        .drug-head .tag.chemo { background:rgba(193,154,154,0.12); color:var(--chemo); }
+        .drug-head .tag.endo { background:rgba(143,174,139,0.12); color:var(--endo); }
+        .drug-head .tag.immuno { background:rgba(168,154,191,0.12); color:var(--immuno); }
+        .drug-head .tag.adc { background:rgba(212,165,116,0.12); color:var(--adc); }
+        .drug-head .tag.target { background:rgba(125,154,170,0.12); color:var(--target); }
+        .drug-head .tag.cell { background:rgba(176,128,112,0.12); color:var(--cell); }
+        .drug-head h4 { font-size:1.02em; font-weight:700; flex:1; }
+        .drug-head .cn { font-size:0.88em; color:var(--text-light); font-weight:400; margin-left:6px; }
+        .drug-head .toggle {
+            font-size:1.1em; color:var(--text-light); transition:transform 0.3s;
+            padding:4px; line-height:1;
+        }
+        .drug-card.open .toggle { transform:rotate(180deg); }
+        .drug-body { display:none; padding:0 20px 20px; }
+        .drug-card.open .drug-body { display:block; }
+
+        /* ── DRUG INFO GRID ── */
+        .drug-info {
+            display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px;
+            margin:14px 0;
+        }
+        .info-box {
+            background:rgba(143,137,128,0.04); border-radius:10px; padding:12px 16px;
+            border-left:3px solid var(--sage-dark);
+        }
+        .info-box label {
+            display:block; font-size:0.68em; color:var(--text-light);
+            text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px;
+        }
+        .info-box span { font-size:0.88em; font-weight:600; line-height:1.5; }
+
+        /* ── MECHANISM ── */
+        .mechanism { margin:16px 0; text-align:center; }
+        .mechanism svg { max-width:100%; height:auto; border-radius:10px; }
+
+        /* ── SIDE EFFECTS ── */
+        .ae-section { margin-top:14px; }
+        .ae-title { font-size:0.85em; color:var(--text-light); margin-bottom:8px; }
+        .ae-tag {
+            display:inline-block; padding:3px 11px; border-radius:20px; font-size:0.78em;
+            margin:3px 3px 3px 0; background:rgba(193,154,154,0.08);
+            color:#a07070; border:1px solid rgba(193,154,154,0.2);
+        }
+        .ae-tag.severe { background:rgba(193,154,154,0.18); font-weight:700; color:#804040; }
+        .ae-tag.severe::before { content:'⚠ '; }
+
+        /* ── CONTRAINDICATION ── */
+        .contra { margin-top:12px; background:rgba(176,128,112,0.06); border-radius:10px; padding:12px 16px; border-left:3px solid var(--cell); }
+        .contra label { font-size:0.68em; color:var(--cell); text-transform:uppercase; letter-spacing:0.08em; display:block; margin-bottom:4px; }
+        .contra span { font-size:0.85em; color:#6a4030; line-height:1.6; }
+
+        /* ── PRETREATMENT ── */
+        .pretag {
+            display:inline-block; padding:2px 10px; border-radius:20px; font-size:0.76em;
+            background:rgba(143,174,139,0.12); color:#5e7e58; border:1px solid rgba(143,174,139,0.25);
+            margin:2px 4px 2px 0;
+        }
+
+        /* ── DOSAGE ── */
+        .dose-highlight {
+            background:rgba(125,154,170,0.06); border-radius:10px; padding:10px 16px;
+            border-left:3px solid var(--blue-gray); margin-top:10px;
+        }
+        .dose-highlight label { display:block; font-size:0.68em; color:var(--blue-gray); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px; }
+        .dose-highlight span { font-size:0.88em; font-weight:600; color:#4a6070; }
+
+        /* ── COLOR LEGEND ── */
+        .legend { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; padding:18px; background:rgba(143,137,128,0.03); border-radius:var(--radius); margin:24px 0; }
+        .legend-item { display:flex; align-items:center; gap:7px; font-size:0.82em; }
+        .legend-dot { width:11px; height:11px; border-radius:50%; }
+
+        /* ── DISCLAIMER ── */
+        .disclaimer {
+            background:linear-gradient(135deg,rgba(143,174,139,0.06),rgba(168,154,191,0.06));
+            border:1px solid var(--divider); border-radius:var(--radius);
+            padding:22px 28px; margin-top:36px; text-align:center;
+            font-size:0.83em; color:var(--text-light); line-height:1.8;
+        }
+        .disclaimer strong { color:var(--sage-dark); }
+
+        /* ── FOOTER ── */
+        footer { text-align:center; padding:36px; color:var(--text-light); font-size:0.78em; }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:768px) {
+            .site-header h1 { font-size:1.8em; }
+            .section-body { padding:18px 16px 24px; }
+            .drug-info { grid-template-columns:1fr; }
+        }
+
+        /* ── SEARCH ── */
+        .search-wrap { margin-bottom:24px; }
+        .search-input {
+            width:100%; max-width:500px; padding:12px 20px; border-radius:30px;
+            border:1px solid var(--divider); font-size:0.95em; background:var(--card);
+            box-shadow:var(--shadow); outline:none; color:var(--text);
+            transition:border-color 0.2s;
+        }
+        .search-input:focus { border-color:var(--sage); }
+        .search-input::placeholder { color:var(--text-light); }
+
+        /* ── MOBILE NAV ── */
+        .mobile-nav {
+            position:sticky; top:0; z-index:100; background:rgba(247,244,240,0.95);
+            backdrop-filter:blur(12px); padding:12px 20px; border-bottom:1px solid var(--divider);
+            display:flex; gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch;
+        }
+        .mobile-nav::-webkit-scrollbar { display:none; }
+        .mnav-btn {
+            flex-shrink:0; padding:5px 14px; border-radius:20px; font-size:0.78em;
+            font-weight:600; border:1px solid var(--divider); background:#fff;
+            color:var(--text-light); cursor:pointer; transition:all 0.2s; white-space:nowrap;
+        }
+        .mnav-btn.active { background:var(--sage); color:#fff; border-color:var(--sage); }
+    </style>
+</head>
+<body>
+
+<div class="site-header">
+    <svg class="icon-flower" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="28" cy="28" r="28" fill="rgba(255,255,255,0.12)"/>
+        <path d="M28 12 Q32 20 28 28 Q24 20 28 12Z" fill="rgba(255,255,255,0.8)"/>
+        <path d="M28 12 Q20 20 28 28 Q36 20 28 12Z" fill="rgba(255,255,255,0.6)"/>
+        <path d="M28 28 Q20 36 28 44 Q36 36 28 28Z" fill="rgba(255,255,255,0.7)"/>
+        <path d="M28 28 Q36 20 44 28 Q36 36 28 28Z" fill="rgba(255,255,255,0.6)"/>
+        <circle cx="28" cy="28" r="5" fill="rgba(255,255,255,0.9)"/>
+    </svg>
+    <h1>土土金的乳腺癌药物库</h1>
+    <p class="subtitle">化疗药 · 内分泌药 · 免疫检查点抑制剂 · ADC抗体偶联药 · 靶向药 · 细胞治疗<br>剂量 · 预处理 · 禁忌症 · 作用机制 · 不良反应</p>
+    <div class="badges">
+        <span class="badge badge-chemo">化疗药</span>
+        <span class="badge badge-endo">内分泌药</span>
+        <span class="badge badge-immuno">免疫药</span>
+        <span class="badge badge-adc">ADC</span>
+        <span class="badge badge-target">靶向药</span>
+        <span class="badge badge-cell">细胞治疗</span>
+    </div>
+</div>
+
+<div class="mobile-nav" id="mobileNav">
+    <button class="mnav-btn active" onclick="scrollTo('chemo')">💊化疗</button>
+    <button class="mnav-btn" onclick="scrollTo('endo')">🧬内分泌</button>
+    <button class="mnav-btn" onclick="scrollTo('immuno')">🛡️免疫</button>
+    <button class="mnav-btn" onclick="scrollTo('adc')">🎯ADC</button>
+    <button class="mnav-btn" onclick="scrollTo('target')">⚗️靶向</button>
+    <button class="mnav-btn" onclick="scrollTo('cell')">🔬细胞</button>
+</div>
+
+<div class="container">
+
+    <div class="search-wrap">
+        <input type="text" class="search-input" placeholder="🔍 搜索药物名称、分类或不良反应……" id="searchInput" oninput="filterCards()">
+    </div>
+
+    <div class="intro-card">
+        <p>本数据库系统整理了乳腺癌常用药物的<strong>商品名称、用法用量、预处理方案、禁忌症</strong>及<strong>常见不良反应</strong>，并配以机制示意图辅助理解。数据来源：NMPA药品说明书 + 临床指南（CSCO/NCCN/ESMO）。</p>
+        <p>⚠️ 所有用药须在有资质的临床医生指导下进行。本页面仅供参考，不构成诊疗建议。</p>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#c19a9a"></div><span>化疗药</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#8fae8b"></div><span>内分泌药</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#a89abf"></div><span>免疫药</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#d4a574"></div><span>ADC</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#7d9aaa"></div><span>靶向药</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#b08070"></div><span>细胞治疗</span></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 一、化疗药                                    -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="section" id="chemo">
+        <div class="section-head chemo">
+            <div class="ic">💊</div>
+            <div>
+                <h2>一、化疗药</h2>
+                <p>通过细胞毒性直接杀伤快速分裂的肿瘤细胞，是乳腺癌全身治疗的基石。</p>
+            </div>
+        </div>
+        <div class="section-body">
+
+            <div class="subsection chemo">
+                <div class="sub-title">1.1 蒽环类（Anthracyclines）</div>
+
+                <div class="drug-card" data-keywords="表柔比星 法码新 epirubicin epi">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag chemo">蒽环类</span>
+                        <h4>表柔比星 <span class="cn">Epirubicin (EPI) · 法码新/国产</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>80-100mg/m² + NS 50-100ml，q3w</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">地塞米松10mg</span><span class="pretag">5-HT抑制剂</span><span class="pretag">NK1抑制剂</span><span class="pretag">雷尼替丁</span></span></div>
+
+                            <div class="info-box"><label>适应症</label><span>适用于乳腺癌、胃癌、肺癌、恶性淋巴瘤、膀胱癌等实体瘤及血液肿瘤</span></div>
+                        </div>
+                        <div class="mechanism">
+                            <svg viewBox="0 0 560 180" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;background:#f7f4f0;border-radius:10px">
+                                <ellipse cx="100" cy="90" rx="65" ry="50" fill="#e8cfcf" opacity="0.6"/>
+                                <ellipse cx="100" cy="90" rx="65" ry="50" fill="none" stroke="#c19a9a" stroke-width="1.5"/>
+                                <text x="100" y="87" text-anchor="middle" font-size="9" fill="#8b5a5a" font-weight="bold">乳腺癌细胞</text>
+                                <line x1="65" y1="75" x2="135" y2="75" stroke="#c19a9a" stroke-width="2"/>
+                                <line x1="65" y1="88" x2="135" y2="88" stroke="#c19a9a" stroke-width="2"/>
+                                <line x1="75" y1="75" x2="75" y2="88" stroke="#8b5a5a" stroke-width="3"/>
+                                <line x1="90" y1="75" x2="90" y2="88" stroke="#8b5a5a" stroke-width="3"/>
+                                <line x1="105" y1="75" x2="105" y2="88" stroke="#8b5a5a" stroke-width="3"/>
+                                <line x1="120" y1="75" x2="120" y2="88" stroke="#8b5a5a" stroke-width="3"/>
+                                <path d="M180 90 L220 90" stroke="#c19a9a" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#a1)"/>
+                                <defs><marker id="a1" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#c19a9a"/></marker></defs>
+                                <rect x="220" y="72" width="50" height="36" rx="6" fill="#c19a9a" opacity="0.85"/>
+                                <text x="245" y="88" text-anchor="middle" font-size="8" fill="white" font-weight="bold">蒽环类</text>
+                                <text x="245" y="100" text-anchor="middle" font-size="7" fill="white">药物</text>
+                                <path d="M270 90 L310 90" stroke="#c19a9a" stroke-width="2" marker-end="url(#a2)"/>
+                                <defs><marker id="a2" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#c19a9a"/></marker></defs>
+                                <ellipse cx="370" cy="90" rx="65" ry="50" fill="#e8cfcf" opacity="0.6"/>
+                                <ellipse cx="370" cy="90" rx="65" ry="50" fill="none" stroke="#c19a9a" stroke-width="1.5"/>
+                                <text x="370" y="87" text-anchor="middle" font-size="9" fill="#8b5a5a" font-weight="bold">肿瘤细胞</text>
+                                <line x1="335" y1="75" x2="405" y2="75" stroke="#8b5a5a" stroke-width="3"/>
+                                <line x1="335" y1="88" x2="405" y2="88" stroke="#8b5a5a" stroke-width="3"/>
+                                <line x1="355" y1="75" x2="355" y2="88" stroke="#c19a9a" stroke-width="4"/>
+                                <line x1="375" y1="75" x2="375" y2="88" stroke="#c19a9a" stroke-width="4"/>
+                                <line x1="390" y1="75" x2="390" y2="88" stroke="#c19a9a" stroke-width="4"/>
+                                <circle cx="460" cy="90" r="22" fill="#c19a9a" opacity="0.25"/>
+                                <text x="460" y="94" text-anchor="middle" font-size="8" fill="#8b5a5a" font-weight="bold">细胞凋亡</text>
+                                <text x="300" y="55" text-anchor="middle" font-size="9" fill="#c19a9a" font-weight="bold">插入DNA碱基对间 → 抑制拓扑异构酶II → DNA断裂 → 凋亡</text>
+                            </svg>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">心脏毒性（累积性）</span>
+                            <span class="ae-tag">骨髓抑制</span>
+                            <span class="ae-tag">恶心呕吐</span>
+                            <span class="ae-tag">脱发（60-90%）</span>
+                            <span class="ae-tag">肝功能异常</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于乳腺癌、胃癌、肺癌、恶性淋巴瘤、膀胱癌等实体瘤及血液肿瘤</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>心脏基础疾病、严重骨髓抑制、对蒽环类药物过敏者禁用；肝功能明显异常者慎用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="多柔比星 阿霉素 doxorubicin ADM">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag chemo">蒽环类</span>
+                        <h4>多柔比星 / 阿霉素 <span class="cn">Doxorubicin (ADM)</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>50-60mg/m² + NS 50-100ml，q3w</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">地塞米松10mg</span><span class="pretag">5-HT抑制剂</span><span class="pretag">NK1抑制剂</span><span class="pretag">雷尼替丁</span></span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">心脏毒性（累积性，危险）</span>
+                            <span class="ae-tag">骨髓抑制</span>
+                            <span class="ae-tag">恶心呕吐</span>
+                            <span class="ae-tag">脱发</span>
+                            <span class="ae-tag">口腔黏膜炎</span>
+                            <span class="ae-tag" style="background:rgba(176,128,112,0.08);color:#a07060;border-color:rgba(176,128,112,0.2)">尿液红染（正常现象）</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于急性白血病、恶性淋巴瘤、乳腺癌、胃癌、肺癌、膀胱癌等</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>严重心脏疾病、左室功能不全、心律失常、骨髓抑制、肝功能重度异常、对本品过敏者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="脂质体多柔比星 立幸 多美素 PLD lipodox">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag chemo">蒽环类</span>
+                        <h4>脂质体多柔比星 <span class="cn">Pegylated Liposomal Doxorubicin (PLD) · 立幸/多美素</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>25-35mg/m² + GS 250ml，q3w</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">地塞米松10mg</span><span class="pretag">5-HT抑制剂</span><span class="pretag">NK1抑制剂</span><span class="pretag">雷尼替丁</span><span class="pretag">苯海拉明</span></span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应（心脏毒性显著低于普通阿霉素）</div>
+                            <span class="ae-tag">手足综合征</span>
+                            <span class="ae-tag">骨髓抑制</span>
+                            <span class="ae-tag">恶心呕吐（低）</span>
+                            <span class="ae-tag" style="background:rgba(143,174,139,0.08);color:#5e7e58;border-color:rgba(143,174,139,0.2)">心脏毒性低 ✓</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于转移性乳腺癌、卵巢癌、多发性骨髓瘤、卡波西肉瘤</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>心脏传导阻滞、严重肝功能障碍、对阿霉素或其制剂成分过敏者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="吡柔比星 pirarubicin">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag chemo">蒽环类</span>
+                        <h4>吡柔比星 <span class="cn">Pirarubicin</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>40-50mg/m² + GS 100ml</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">地塞米松10mg</span><span class="pretag">5-HT抑制剂</span><span class="pretag">NK1抑制剂</span><span class="pretag">雷尼替丁</span></span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag">心脏毒性（低）</span>
+                            <span class="ae-tag">骨髓抑制</span>
+                            <span class="ae-tag">恶心呕吐（低）</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于乳腺癌、胃癌、恶性淋巴瘤、膀胱癌等</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>心脏疾病、骨髓抑制、对本品过敏者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection chemo">
+                <div class="sub-title">1.2 紫杉类（Taxanes）</div>
+
+                <div class="drug-card" data-keywords="紫杉醇 普通紫杉醇 paclitaxel tax">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag chemo">紫杉类</span>
+                        <h4>紫杉醇（普通） <span class="cn">Paclitaxel</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>q3w：175mg/m² + NS 500ml；qw：80mg/m² + NS 250ml</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">地塞米松10mg</span><span class="pretag">雷尼替丁</span><span class="pretag">苯海拉明</span><span class="pretag">5-HT抑制剂</span></span></div>
+
+
+
+
+                        </div>
+                        <div class="mechanism">
+                            <svg viewBox="0 0 560 170" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;background:#f7f4f0;border-radius:10px">
+                                <text x="90" y="25" text-anchor="middle" font-size="9" fill="#8b5a5a" font-weight="bold">正常：微管解聚→分裂</text>
+                                <ellipse cx="90" cy="75" rx="60" ry="40" fill="#e8cfcf" opacity="0.5"/>
+                                <line x1="45" y1="65" x2="135" y2="65" stroke="#7a9a6b" stroke-width="4"/>
+                                <line x1="45" y1="75" x2="135" y2="75" stroke="#7a9a6b" stroke-width="4"/>
+                                <path d="M35 70 L20 70" stroke="#7a9a6b" stroke-width="1.5" stroke-dasharray="3,2"/>
+                                <path d="M145 70 L160 70" stroke="#7a9a6b" stroke-width="1.5" stroke-dasharray="3,2"/>
+                                <circle cx="175" cy="70" r="18" fill="#8fae8b" opacity="0.3"/>
+                                <text x="175" y="74" text-anchor="middle" font-size="7" fill="#5e7e58">分裂</text>
+                                <text x="280" y="55" text-anchor="middle" font-size="9" fill="#c19a9a" font-weight="bold">紫杉醇：稳定微管 → 阻止分裂</text>
+                                <line x1="200" y1="75" x2="235" y2="75" stroke="#c19a9a" stroke-width="2" marker-end="url(#t1)"/>
+                                <defs><marker id="t1" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#c19a9a"/></marker></defs>
+                                <rect x="235" y="58" width="55" height="28" rx="6" fill="#c19a9a" opacity="0.85"/>
+                                <text x="262" y="75" text-anchor="middle" font-size="8" fill="white" font-weight="bold">紫杉醇</text>
+                                <ellipse cx="370" cy="75" rx="60" ry="40" fill="#e8cfcf" opacity="0.5"/>
+                                <line x1="325" y1="65" x2="415" y2="65" stroke="#c19a9a" stroke-width="5"/>
+                                <line x1="325" y1="75" x2="415" y2="75" stroke="#c19a9a" stroke-width="5"/>
+                                <text x="370" y="90" text-anchor="middle" font-size="8" fill="#c19a9a">微管稳定不解聚</text>
+                                <circle cx="370" cy="130" r="20" fill="#c19a9a" opacity="0.2"/>
+                                <text x="370" y="134" text-anchor="middle" font-size="7" fill="#c19a9a" font-weight="bold">G2/M阻滞</text>
+                                <text x="460" y="55" text-anchor="middle" font-size="9" fill="#c19a9a" font-weight="bold">促进微管蛋白聚合 + 抑制解聚</text>
+                                <text x="460" y="70" text-anchor="middle" font-size="8" fill="#8b5a5a">阻断微管网重组</text>
+                            </svg>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">过敏反应（需预处理）</span>
+                            <span class="ae-tag severe">周围神经病变</span>
+                            <span class="ae-tag">骨髓抑制</span>
+                            <span class="ae-tag">脱发</span>
+                            <span class="ae-tag">肌肉关节痛</span>
+                            <span class="ae-tag">恶心</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于乳腺癌、卵巢癌、非小细胞肺癌</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>对紫杉醇或聚氧乙基代蓖麻油过敏者、中性粒细胞绝对计数&lt;1.5×10⁹/L者、严重肝功能异常者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="脂质体紫杉醇">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag chemo">紫杉类</span>
+                        <h4>脂质体紫杉醇 <span class="cn">Liposomal Paclitaxel</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>q3w：175mg/m² + GS 500ml；qw：80mg/m² + GS 250ml</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">地塞米松10mg</span><span class="pretag">雷尼替丁</span><span class="pretag">苯海拉明</span><span class="pretag">5-HT抑制剂</span></span></div>
+
+
+                            <div class="info-box"><label>适应症</label><span>适用于转移性乳腺癌、卵巢癌</span></div>                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag">过敏反应（低于普通紫杉醇）</span>
+                            <span class="ae-tag">神经毒性（低于普通紫杉醇）</span>
+                            <span class="ae-tag">骨髓抑制</span>
+                            <span class="ae-tag">肝损伤</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="白蛋白紫杉醇 nab-paclitaxel abraxane 白紫">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag chemo">紫杉类</span>
+                        <h4>白蛋白结合型紫杉醇 <span class="cn">Nab-Paclitaxel (Abraxane)</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>q3w：260mg/m² + NS（量约1/5）；qw：125mg/m² + NS；100mg/m² qw</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">5-HT抑制剂（无需激素预处理）</span></span></div>
+
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">中性粒细胞减少</span>
+                            <span class="ae-tag">神经毒性（低于普通紫杉醇）</span>
+                            <span class="ae-tag">脱发</span>
+                            <span class="ae-tag">骨髓抑制</span>
+                            <span class="ae-tag" style="background:rgba(143,174,139,0.08);color:#5e7e58;border-color:rgba(143,174,139,0.2)">无需激素预处理 ✓</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于转移性乳腺癌、胰腺癌、非小细胞肺癌</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>中性粒细胞绝对计数&lt;1.5×10⁹/L、对白蛋白结合型紫杉醇或其任何成分过敏者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="多西他赛 泰素帝 docetaxel txt">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag chemo">紫杉类</span>
+                        <h4>多西他赛 <span class="cn">Docetaxel (TXT) · 泰素帝/国产</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>单药：100mg/m² + NS 250ml；三药联合：75mg/m²（需预处理）</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">地塞米松15mg d0/d1/d2（预防体液潴留）</span><span class="pretag">雷尼替丁</span><span class="pretag">5-HT抑制剂</span></span></div>
+
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">中性粒细胞减少（最常见）</span>
+                            <span class="ae-tag">脱发</span>
+                            <span class="ae-tag">骨髓抑制</span>
+                            <span class="ae-tag">腹痛/皮疹</span>
+                            <span class="ae-tag">液体潴留（水肿）</span>
+                            <span class="ae-tag">甲减</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于局部晚期或转移性乳腺癌、非小细胞肺癌、前列腺癌、胃癌</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>对多西他赛或聚氧乙基代蓖麻油过敏、严重肝功能异常、中性粒细胞&lt;1.5×10⁹/L者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection chemo">
+                <div class="sub-title">1.3 抗代谢药 / 铂类 / 烷化剂 / 长春碱</div>
+
+                <div class="drug-card" data-keywords="卡培他滨 希罗达 capecitabine xeloda">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag chemo">抗代谢</span>
+                        <h4>卡培他滨 <span class="cn">Capecitabine (Xeloda) · 希罗达</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>1000-1250mg/m²口服，d1-d14 bid，q21d；节拍：1片tid或2片bid</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">维生素B6 100mg tid（手足综合征预防）</span><span class="pretag">卡培他滨代谢基因检测（建议）</span></span></div>
+
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">手足综合征（Palmar-plantar）</span>
+                            <span class="ae-tag">色素沉着</span>
+                            <span class="ae-tag">恶心呕吐</span>
+                            <span class="ae-tag">腹泻</span>
+                            <span class="ae-tag">骨髓抑制</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于转移性乳腺癌、结直肠癌、胃癌</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>对氟尿嘧啶过敏、严重肝功能异常、妊娠期、 DPD缺乏者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="吉西他滨 健择 泽菲 gemcitabine gem">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag chemo">抗代谢</span>
+                        <h4>吉西他滨 <span class="cn">Gemcitabine (GEM) · 健择/泽菲</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>850-1000mg/m² iv d1、d8，q21d + NS 100ml</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">5-HT抑制剂</span></span></div>
+
+
+                            <div class="info-box"><label>适应症</label><span>适用于胰腺癌、转移性乳腺癌、非小细胞肺癌、膀胱癌</span></div>                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag">血小板减少</span>
+                            <span class="ae-tag">贫血</span>
+                            <span class="ae-tag">流感样症状</span>
+                            <span class="ae-tag">恶心</span>
+                            <span class="ae-tag">肝功能异常</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="氟尿嘧啶 5-Fu fluorouracil">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag chemo">抗代谢</span>
+                        <h4>氟尿嘧啶 <span class="cn">Fluorouracil (5-Fu)</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>双药：600mg/m²；三药：500mg/m² + NS 500ml</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">地塞米松10mg</span><span class="pretag">5-HT抑制剂</span><span class="pretag">雷尼替丁</span></span></div>
+
+
+                            <div class="info-box"><label>适应症</label><span>适用于消化道肿瘤（食管癌、胃癌、结直肠癌）、乳腺癌、头颈部肿瘤</span></div>                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag">恶心呕吐</span>
+                            <span class="ae-tag">神经毒性</span>
+                            <span class="ae-tag">骨髓抑制</span>
+                            <span class="ae-tag">黏膜炎</span>
+                            <span class="ae-tag">腹泻</span>
+                            <span class="ae-tag">心肌缺血（偶发）</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="长春瑞滨 诺维本 vinorelbine nvnb">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag chemo">长春碱</span>
+                        <h4>长春瑞滨 <span class="cn">Vinorelbine (NVB) · 诺维本/盖诺</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>iv d1、d8 q21d：25mg/m²；po（双药）：60-80mg/m² d1、d8；单药每周：40mg 每周一/三/五口服</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">地塞米松10mg</span><span class="pretag">5-HT抑制剂</span><span class="pretag">雷尼替丁</span></span></div>
+
+                            <div class="info-box"><label>适应症</label><span>适用于非小细胞肺癌、转移性乳腺癌</span></div>                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag">恶心呕吐</span>
+                            <span class="ae-tag">血小板减少/贫血</span>
+                            <span class="ae-tag">便秘/肠梗阻</span>
+                            <span class="ae-tag">静脉炎</span>
+                            <span class="ae-tag">脱发</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="环磷酰胺 CTX 安道生 cyclophosphamide">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag chemo">烷化剂</span>
+                        <h4>环磷酰胺 <span class="cn">Cyclophosphamide (CTX) · 安道生</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>双药：600mg/m²；三药：500mg/m² + NS 50-100ml</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">地塞米松10mg</span><span class="pretag">5-HT抑制剂</span><span class="pretag">NK1抑制剂</span><span class="pretag">雷尼替丁</span></span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">出血性膀胱炎（代谢产物丙烯醛）</span>
+                            <span class="ae-tag">骨髓抑制</span>
+                            <span class="ae-tag">恶心呕吐</span>
+                            <span class="ae-tag">脱发</span>
+                            <span class="ae-tag">卵巢早衰</span>
+                            <span class="ae-tag">肝功能异常</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于恶性淋巴瘤，白血病、多发性骨髓瘤、乳腺癌、卵巢癌等多种实体瘤</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>活动性泌尿系统感染、妊娠、严重骨髓抑制、对环磷酰胺过敏者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="卡铂 伯尔定 波贝 carboplatin">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag chemo">铂类</span>
+                        <h4>卡铂 <span class="cn">Carboplatin · 伯尔定/波贝</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>q3w AUC=5-6（d1/d8）；AUC=2（维持）+ GS 500ml或GS 250ml</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">地塞米松10mg</span><span class="pretag">5-HT抑制剂</span><span class="pretag">NK1抑制剂</span><span class="pretag">雷尼替丁</span></span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag">血小板减少/贫血</span>
+                            <span class="ae-tag">恶心呕吐</span>
+                            <span class="ae-tag">脱发</span>
+                            <span class="ae-tag">骨髓抑制</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于卵巢癌、肺癌、乳腺癌、头颈部肿瘤</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>严重肾功能不全、对铂类过敏、严重骨髓抑制者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="顺铂 cisplatin">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag chemo">铂类</span>
+                        <h4>顺铂 <span class="cn">Cisplatin</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>75mg/m²（可分3天使用）+ NS 500ml</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">地塞米松10mg</span><span class="pretag">5-HT抑制剂</span><span class="pretag">NK1抑制剂</span><span class="pretag">雷尼替丁</span></span></div>
+
+                            <div class="info-box"><label>适应症</label><span>适用于睾丸癌、膀胱癌、肺癌、头颈部肿瘤、胃癌、宫颈癌</span></div>                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">肾损伤</span>
+                            <span class="ae-tag severe">恶心呕吐（强烈）</span>
+                            <span class="ae-tag">骨髓抑制</span>
+                            <span class="ae-tag">脱发</span>
+                            <span class="ae-tag">耳毒性</span>
+                            <span class="ae-tag">外周神经病变</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="艾立布林 eribulin halaven">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag chemo">新型微管</span>
+                        <h4>艾立布林 <span class="cn">Eribulin (Halaven)</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>1.4mg/m² d1及d8 iv或iv drip + NS 100ml</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">5-HT抑制剂</span></span></div>
+
+                            <div class="info-box"><label>适应症</label><span>适用于转移性乳腺癌（既往接受过至少两种化疗方案）</span></div>                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">中性粒细胞减少</span>
+                            <span class="ae-tag">周围神经病变</span>
+                            <span class="ae-tag">乏力</span>
+                            <span class="ae-tag">恶心</span>
+                            <span class="ae-tag">QT间期延长</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 二、内分泌药                                  -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="section" id="endo">
+        <div class="section-head endo">
+            <div class="ic">🧬</div>
+            <div>
+                <h2>二、内分泌药</h2>
+                <p>降低雌激素水平或阻断雌激素受体，抑制HR+乳腺癌细胞生长。</p>
+            </div>
+        </div>
+        <div class="section-body">
+
+            <div class="subsection endo">
+                <div class="sub-title">2.1 SERM（选择性雌激素受体调节剂）</div>
+
+                <div class="drug-card" data-keywords="他莫昔芬 tamoxifen tam">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag endo">SERM</span>
+                        <h4>他莫昔芬 <span class="cn">Tamoxifen (TAM)</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>10mg bid口服（绝经前/后均适用）</span></div>
+                            <div class="info-box"><label>预处理</label><span>无需常规预处理</span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">子宫内膜增厚/癌变（长期）</span>
+                            <span class="ae-tag severe">血栓风险（静脉血栓）</span>
+                            <span class="ae-tag">月经异常/闭经</span>
+                            <span class="ae-tag">潮热出汗</span>
+                            <span class="ae-tag">情绪波动</span>
+                            <span class="ae-tag">高血脂</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于激素受体阳性（ER+/PR+）乳腺癌的辅助内分泌治疗及转移性乳腺癌</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>妊娠期、有深静脉血栓史或肺栓塞史、对本品过敏者禁用；活动性血栓或高危患者慎用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="托瑞米芬 法乐通 toremifene">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag endo">SERM</span>
+                        <h4>托瑞米芬 <span class="cn">Toremifene (Fareston) · 法乐通</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>60mg qd口服</span></div>
+                            <div class="info-box"><label>预处理</label><span>无需常规预处理</span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag">潮热</span>
+                            <span class="ae-tag">恶心</span>
+                            <span class="ae-tag">头晕</span>
+                            <span class="ae-tag">血栓风险（低于TAM）</span>
+                            <span class="ae-tag">阴道分泌物</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于激素受体阳性绝经后乳腺癌</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>妊娠期、已知对托瑞米芬过敏者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection endo">
+                <div class="sub-title">2.2 芳香化酶抑制剂（AI）</div>
+
+                <div class="drug-card" data-keywords="来曲唑 弗隆 letrozole femara">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag endo">非甾体AI</span>
+                        <h4>来曲唑 <span class="cn">Letrozole (Femara) · 弗隆</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>1片（2.5mg）qd口服（绝经后）</span></div>
+                            <div class="info-box"><label>预处理</label><span>无需常规预处理</span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">骨质疏松/骨折风险</span>
+                            <span class="ae-tag">关节疼痛/僵硬</span>
+                            <span class="ae-tag">潮热</span>
+                            <span class="ae-tag">血脂异常</span>
+                            <span class="ae-tag">情绪波动</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于绝经后激素受体阳性晚期或转移性乳腺癌</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>绝经前、妊娠期、对来曲唑或其任何成分过敏者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="阿那曲唑 瑞宁得 anastrozole arimidex">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag endo">非甾体AI</span>
+                        <h4>阿那曲唑 <span class="cn">Anastrozole (Arimidex) · 瑞宁得</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>1mg qd口服（绝经后）</span></div>
+                            <div class="info-box"><label>预处理</label><span>无需常规预处理</span></div>
+
+                            <div class="info-box"><label>适应症</label><span>适用于绝经后激素受体阳性晚期或转移性乳腺癌</span></div>
+                            <div class="info-box"><label>适应症</label><span>适用于乳腺癌、卵巢癌、非小细胞肺癌</span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">骨质疏松</span>
+                            <span class="ae-tag">关节痛</span>
+                            <span class="ae-tag">潮热</span>
+                            <span class="ae-tag">恶心</span>
+                            <span class="ae-tag">阴道干涩</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="依西美坦 阿诺新 exemestane aromasin">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag endo">甾体AI</span>
+                        <h4>依西美坦 <span class="cn">Exemestane (Aromasin) · 阿诺新</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>25mg qd口服（与餐同服，绝经后）</span></div>
+                            <div class="info-box"><label>预处理</label><span>无需常规预处理</span></div>
+
+                            <div class="info-box"><label>适应症</label><span>适用于绝经后激素受体阳性乳腺癌（他莫昔芬辅助治疗后）</span></div>                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">骨质疏松</span>
+                            <span class="ae-tag">关节痛</span>
+                            <span class="ae-tag">潮热</span>
+                            <span class="ae-tag">乏力</span>
+                            <span class="ae-tag">情绪障碍</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection endo">
+                <div class="sub-title">2.3 SERD / CDK4/6i / GnRH-a</div>
+
+                <div class="drug-card" data-keywords="氟维司群 芙仕得 fulvestrant faslodex">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag endo">SERD</span>
+                        <h4>氟维司群 <span class="cn">Fulvestrant (Faslodex) · 芙仕得</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>500mg，分左右两侧臀部注射，d1、d15、d28各1支，之后每28天1次</span></div>
+                            <div class="info-box"><label>预处理</label><span>无需常规预处理</span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag">注射部位反应</span>
+                            <span class="ae-tag">潮热</span>
+                            <span class="ae-tag">恶心</span>
+                            <span class="ae-tag">乏力</span>
+                            <span class="ae-tag">关节痛</span>
+                            <span class="ae-tag">肝功能异常</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于激素受体阳性转移性乳腺癌（绝经后），单药或联合CDK4/6抑制剂</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>妊娠期、对本品过敏者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="哌柏西利 爱博新 palbociclib ibrance">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag endo">CDK4/6i</span>
+                        <h4>哌柏西利 <span class="cn">Palbociclib (Ibrance) · 爱博新</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>125mg-100mg-75mg qd口服 d1-d21，q28d（剂量递减）</span></div>
+                            <div class="info-box"><label>预处理</label><span>无需常规预处理（与内分泌药联用）</span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">中性粒细胞减少（最常见）</span>
+                            <span class="ae-tag">感染</span>
+                            <span class="ae-tag">疲劳</span>
+                            <span class="ae-tag">恶心</span>
+                            <span class="ae-tag">口腔炎</span>
+                            <span class="ae-tag">血小板减少</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于HR+/HER2-局部晚期或转移性乳腺癌（联合内分泌治疗）</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>中重度肝功能损害、妊娠期禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="阿贝西利 verzenio abemaciclib">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag endo">CDK4/6i</span>
+                        <h4>阿贝西利 <span class="cn">Abemaciclib (Verzenio)</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>150mg bid口服（可连续给药）</span></div>
+                            <div class="info-box"><label>预处理</label><span>无需常规预处理（注意腹泻预防）</span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">腹泻（最显著，需预防性止泻）</span>
+                            <span class="ae-tag">骨髓抑制</span>
+                            <span class="ae-tag">静脉血栓</span>
+                            <span class="ae-tag">恶心</span>
+                            <span class="ae-tag">疲劳</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于HR+/HER2-局部晚期或转移性乳腺癌（联合内分泌治疗）</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>严重活动性感染、妊娠期禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="戈舍瑞林 诺雷得 goserelin">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag endo">GnRH-a</span>
+                        <h4>戈舍瑞林 <span class="cn">Goserelin (Zoladex) · 诺雷得</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>3.6mg皮下注射，每28天1次；或10.8mg每3个月1次</span></div>
+                            <div class="info-box"><label>预处理</label><span>无需常规预处理</span></div>
+
+                            <div class="info-box"><label>适应症</label><span>适用于绝经前激素受体阳性乳腺癌（卵巢功能抑制）、前列腺癌</span></div>                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag">潮热/更年期症状</span>
+                            <span class="ae-tag">情绪波动</span>
+                            <span class="ae-tag">骨质疏松（长期）</span>
+                            <span class="ae-tag">性欲减退</span>
+                            <span class="ae-tag">注射部位反应</span>
+                            <span class="ae-tag">阴道干涩</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 三、免疫检查点抑制剂                          -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="section" id="immuno">
+        <div class="section-head immuno">
+            <div class="ic">🛡️</div>
+            <div>
+                <h2>三、免疫检查点抑制剂</h2>
+                <p>阻断PD-1/PD-L1或CTLA-4，解除免疫逃逸，恢复T细胞抗肿瘤活性。</p>
+            </div>
+        </div>
+        <div class="section-body">
+
+            <div class="subsection immuno">
+                <div class="sub-title">PD-1 / PD-L1 抑制剂</div>
+
+                <div class="drug-card" data-keywords="帕博利珠单抗 可瑞达 pembrolizumab keytruda">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag immuno">PD-1</span>
+                        <h4>帕博利珠单抗 <span class="cn">Pembrolizumab (Keytruda) · 可瑞达（进口）/ 艾瑞卡（国产）</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>200mg q14d 或 q21d iv（进口：NS 100ml；国产：GS 100ml或NS 100ml）</span></div>
+                            <div class="info-box"><label>预处理（国产）</label><span><span class="pretag">苯海拉明预处理（国产制剂）</span></span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">免疫相关不良反应（irAE）</span>
+                            <span class="ae-tag severe">免疫性肺炎</span>
+                            <span class="ae-tag severe">免疫性肝炎</span>
+                            <span class="ae-tag">免疫性甲状腺炎</span>
+                            <span class="ae-tag">皮疹/瘙痒</span>
+                            <span class="ae-tag">腹泻/结肠炎</span>
+                            <span class="ae-tag">乏力</span>
+                            <span class="ae-tag">甲亢/甲减</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于PD-L1 CPS≥10的不可切除局部晚期或转移性三阴性乳腺癌（联合化疗）；HER2+乳腺癌新辅助/辅助治疗</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>对帕博利珠单抗或其任何成分有严重过敏史者、妊娠期、严重活动性自身免疫疾病者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="阿替利珠单抗 atezolizumab tecentriq">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag immuno">PD-L1</span>
+                        <h4>阿替利珠单抗 <span class="cn">Atezolizumab (Tecentriq) · T药</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>1200mg q21d iv</span></div>
+                            <div class="info-box"><label>预处理</label><span>输液前预处理（抗过敏）</span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">免疫性肺炎</span>
+                            <span class="ae-tag">输液反应</span>
+                            <span class="ae-tag">乏力</span>
+                            <span class="ae-tag">恶心</span>
+                            <span class="ae-tag">免疫性皮疹</span>
+                            <span class="ae-tag">食欲减退</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于PD-L1阳性不可切除局部晚期或转移性三阴性乳腺癌（联合白蛋白紫杉醇）</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>对阿替利珠单抗或其任何成分严重过敏、严重活动性自身免疫病、妊娠期禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 四、ADC                                      -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="section" id="adc">
+        <div class="section-head adc">
+            <div class="ic">🎯</div>
+            <div>
+                <h2>四、ADC抗体偶联药物</h2>
+                <p>抗体 + 连接子 + 细胞毒性载荷，实现精准靶向化疗。</p>
+            </div>
+        </div>
+        <div class="section-body">
+
+            <div class="subsection adc">
+                <div class="sub-title">HER2 靶向ADC</div>
+
+                <div class="drug-card" data-keywords="曲妥珠单抗偶联DM1 T-DM1 恩美曲妥珠单抗 kadcyla">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag adc">HER2 ADC</span>
+                        <h4>恩美曲妥珠单抗 <span class="cn">Trastuzumab Emtansine / T-DM1 (Kadcyla)</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>3.6mg/kg iv q3w + NS 250ml（首次需观察）</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">三联抗过敏预处理（首次）</span></span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">血小板减少</span>
+                            <span class="ae-tag severe">肝脏毒性</span>
+                            <span class="ae-tag">恶心</span>
+                            <span class="ae-tag">乏力</span>
+                            <span class="ae-tag">周围神经病变</span>
+                            <span class="ae-tag">心脏毒性（低于曲妥珠单抗）</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于HER2+早期乳腺癌（新辅助治疗后有残余病灶）；HER2+转移性乳腺癌（既往接受过曲妥珠单抗和紫杉醇）</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>对T-DM1过敏、严重血小板减少、严重肝功能受损者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="曲妥珠单抗偶联德曲妥珠单抗 DS-8201 优赫得 trastuzumab deruxtecan enhertu">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag adc">HER2 ADC</span>
+                        <h4>德曲妥珠单抗 <span class="cn">Trastuzumab Deruxtecan / T-DXd (Enhertu) · 优赫得</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>5.4mg/kg或6.4mg/kg iv q3w + NS 100ml（稀释后）</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">三联抗过敏预处理（首次）</span></span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">间质性肺病（ILD，需监测）</span>
+                            <span class="ae-tag severe">中性粒细胞减少</span>
+                            <span class="ae-tag">恶心呕吐</span>
+                            <span class="ae-tag">疲劳</span>
+                            <span class="ae-tag">脱发</span>
+                            <span class="ae-tag">血小板减少</span>
+                            <span class="ae-tag">左室功能不全</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于HER2+转移性乳腺癌（既往接受过T-DM1）；HER2+胃癌；HER2低表达转移性乳腺癌</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>对DS-8201或其任何成分过敏、ILD病史、妊娠期禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="伊尼托单抗 inetetmab">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag adc">HER2 ADC</span>
+                        <h4>伊尼托单抗 <span class="cn">Inetetmab / 伊尼托单抗</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>首次8mg/kg，之后6mg/kg iv q3w + NS 250ml（首次三联抗过敏）</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">三联抗过敏预处理（首次）</span></span></div>
+
+                            <div class="info-box"><label>适应症</label><span>适用于HER2阳性实体瘤（胃癌、乳腺癌、尿路上皮癌等）</span></div>                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag">输注反应</span>
+                            <span class="ae-tag">发热</span>
+                            <span class="ae-tag">血小板减少</span>
+                            <span class="ae-tag">周围神经病变</span>
+                            <span class="ae-tag">心脏毒性</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection adc">
+                <div class="sub-title">TROP2 靶向ADC</div>
+
+                <div class="drug-card" data-keywords="戈沙妥珠单抗 sacituzumab govitecan trodelvy">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag adc">TROP2 ADC</span>
+                        <h4>戈沙妥珠单抗 <span class="cn">Sacituzumab Govitecan (Trodelvy) · 拓达维</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>10mg/kg iv d1、d8 q21d（持续治疗至疾病进展或不可耐受毒性）</span></div>
+                            <div class="info-box"><label>预处理</label><span>无需特殊预处理（注意恶心呕吐预防）</span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">中性粒细胞减少</span>
+                            <span class="ae-tag severe">腹泻</span>
+                            <span class="ae-tag">恶心呕吐</span>
+                            <span class="ae-tag">脱发</span>
+                            <span class="ae-tag">疲劳</span>
+                            <span class="ae-tag">输液反应</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于转移性三阴性乳腺癌（既往接受过≥2线治疗）；HR+/HER2-转移性乳腺癌</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>对戈沙妥珠单抗或其任何成分严重过敏、妊娠期、UGT1A1酶活性显著降低者（重度中性粒细胞减少风险）禁用。</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 五、靶向药                                   -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="section" id="target">
+        <div class="section-head target">
+            <div class="ic">⚗️</div>
+            <div>
+                <h2>五、靶向药</h2>
+                <p>针对HER2、BRCA/PARP、PI3K/AKT/mTOR、VEGF等特定分子靶点精准治疗。</p>
+            </div>
+        </div>
+        <div class="section-body">
+
+            <div class="subsection target">
+                <div class="sub-title">HER2 单克隆抗体</div>
+
+                <div class="drug-card" data-keywords="曲妥珠单抗 赫赛汀 trastuzumab herceptin">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag target">HER2 mAb</span>
+                        <h4>曲妥珠单抗 <span class="cn">Trastuzumab (Herceptin) · 赫赛汀</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>首次8mg/kg（负荷），之后6mg/kg iv q3w + NS 250ml；或每周给药方案</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">三联抗过敏预处理（首次）</span></span></div>
+                        </div>
+
+                            <div class="info-box"><label>适应症</label><span>适用于HER2+早期乳腺癌（辅助/新辅助治疗）；HER2+转移性乳腺癌；HER2+胃癌</span></div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">心脏毒性（左室功能不全，累积）</span>
+                            <span class="ae-tag">输液反应</span>
+                            <span class="ae-tag">恶心</span>
+                            <span class="ae-tag">腹泻</span>
+                            <span class="ae-tag">皮疹</span>
+                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>对曲妥珠单抗过敏、严重心脏疾病（左室功能不全）、妊娠期禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="帕妥珠单抗 帕捷特 pertuzumab perjeta">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag target">HER2 mAb</span>
+                        <h4>帕妥珠单抗 <span class="cn">Pertuzumab (Perjeta) · 帕捷特</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>首次840mg，之后420mg iv q3w + NS 250ml（首次需三联抗过敏）</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">三联抗过敏预处理（首次）</span></span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag">腹泻</span>
+                            <span class="ae-tag">恶心</span>
+                            <span class="ae-tag">皮疹</span>
+                            <span class="ae-tag">中性粒细胞减少</span>
+                            <span class="ae-tag">心脏毒性（低于曲妥珠单抗）</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于HER2+早期乳腺癌（新辅助/辅助联合曲妥珠单抗）；HER2+转移性乳腺癌（联合曲妥珠单抗和紫杉醇）</span></div>
+                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>对帕妥珠单抗或其任何成分严重过敏、严重心脏疾病患者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection target">
+                <div class="sub-title">HER2 TKI（小分子酪氨酸激酶抑制剂）</div>
+
+                <div class="drug-card" data-keywords="吡咯替尼 pyrotinib">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag target">HER2 TKI</span>
+                        <h4>吡咯替尼 <span class="cn">Pyrotinib</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>400mg qd口服（与卡培他滨联用）</span></div>
+                            <div class="info-box"><label>预处理</label><span>无需常规预处理</span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">腹泻</span>
+                            <span class="ae-tag">皮疹</span>
+                            <span class="ae-tag">恶心</span>
+                            <span class="ae-tag">中性粒细胞减少</span>
+                            <span class="ae-tag">肝功能异常</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于HER2+转移性乳腺癌（既往接受过曲妥珠单抗治疗）</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>中重度肝功能损害、妊娠期禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="拉帕替尼 lapatinib tykerb">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag target">HER2 TKI</span>
+                        <h4>拉帕替尼 <span class="cn">Lapatinib (Tykerb)</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>1250mg qd口服（与卡培他滨联用）</span></div>
+                            <div class="info-box"><label>预处理</label><span>无需常规预处理</span></div>
+
+                            <div class="info-box"><label>适应症</label><span>适用于HER2+转移性乳腺癌（联合卡培他滨）；HER2+胃癌</span></div>                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">腹泻</span>
+                            <span class="ae-tag severe">手足综合征</span>
+                            <span class="ae-tag">恶心</span>
+                            <span class="ae-tag">皮疹</span>
+                            <span class="ae-tag">肝功能异常</span>
+                            <span class="ae-tag">心脏毒性（可逆）</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection target">
+                <div class="sub-title">PARP抑制剂 / mTOR / PI3K / AKT / HDAC</div>
+
+                <div class="drug-card" data-keywords="奥拉帕利 olaparib lynparza">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag target">PARPi</span>
+                        <h4>奥拉帕利 <span class="cn">Olaparib (Lynparza)</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>300mg bid口服（gBRCA突变乳腺癌）</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">BRCA基因检测（必要）</span></span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">血小板减少</span>
+                            <span class="ae-tag severe">贫血</span>
+                            <span class="ae-tag">恶心</span>
+                            <span class="ae-tag">乏力</span>
+                            <span class="ae-tag">肌痛</span>
+                            <span class="ae-tag">MDS/AML（罕见）</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于BRCA1/2突变的HER2-转移性乳腺癌（gBRCA突变）；卵巢癌、胰腺癌</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>妊娠期、重度肾功能不全、对奥拉帕利或其任何成分过敏者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="依维莫司 Afinitor everolimus">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag target">mTORi</span>
+                        <h4>依维莫司 <span class="cn">Everolimus (Afinitor)</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>10mg qd口服（与依西美坦联用）</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">地塞米松10mg + NS 100ml漱口（口腔溃疡预防）</span></span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">非感染性肺炎</span>
+                            <span class="ae-tag severe">口腔炎</span>
+                            <span class="ae-tag">皮疹</span>
+                            <span class="ae-tag">腹泻</span>
+                            <span class="ae-tag">高血糖</span>
+                            <span class="ae-tag">乏力</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于HR+/HER2-绝经后晚期乳腺癌（联合依西美坦）；肾细胞癌、神经内分泌肿瘤</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>中重度肝功能损害、妊娠期、对依维莫司或其任何成分过敏者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="阿帕替尼 apatinib">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag target">抗血管VEGFR2 TKI</span>
+                        <h4>阿帕替尼 <span class="cn">Apatinib (Aitan)</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>250-500mg qd口服（餐后半小时，乳腺癌常用250mg/d起始）</span></div>
+                            <div class="info-box"><label>预处理</label><span>无需常规预处理</span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                        <div class="mechanism">
+                            <svg viewBox="0 0 560 160" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;background:#f7f4f0;border-radius:10px">
+                                <text x="280" y="25" text-anchor="middle" font-size="11" fill="#7d9aaa" font-weight="bold">阿帕替尼：VEGFR-2酪氨酸激酶抑制剂</text>
+                                <!-- 肿瘤细胞 -->
+                                <ellipse cx="120" cy="85" rx="60" ry="45" fill="#b0c4cc" opacity="0.3"/>
+                                <ellipse cx="120" cy="85" rx="60" ry="45" fill="none" stroke="#7d9aaa" stroke-width="2"/>
+                                <text x="120" y="82" text-anchor="middle" font-size="9" fill="#4a6070" font-weight="bold">肿瘤细胞</text>
+                                <!-- VEGF分泌 -->
+                                <circle cx="200" cy="60" r="14" fill="#e57373" opacity="0.7"/>
+                                <text x="200" y="64" text-anchor="middle" font-size="7" fill="white" font-weight="bold">VEGF</text>
+                                <path d="M185 60 L195 60" stroke="#e57373" stroke-width="1.5" stroke-dasharray="2,2"/>
+                                <!-- VEGFR2 -->
+                                <rect x="230" y="48" width="40" height="18" rx="5" fill="#7d9aaa"/>
+                                <text x="250" y="60" text-anchor="middle" font-size="6" fill="white" font-weight="bold">VEGFR2</text>
+                                <!-- 阿帕替尼阻断 -->
+                                <rect x="270" y="52" width="50" height="28" rx="6" fill="#d4a574"/>
+                                <text x="295" y="69" text-anchor="middle" font-size="8" fill="white" font-weight="bold">阿帕替尼</text>
+                                <line x1="270" y1="65" x2="230" y2="58" stroke="#d4a574" stroke-width="2" marker-end="url(#apa)"/>
+                                <defs><marker id="apa" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#d4a574"/></marker></defs>
+                                <!-- 箭头 -->
+                                <path d="M320 58 L350 58" stroke="#7d9aaa" stroke-width="2" stroke-dasharray="3,2" marker-end="url(#apa2)"/>
+                                <defs><marker id="apa2" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#7d9aaa"/></marker></defs>
+                                <text x="335" y="52" text-anchor="middle" font-size="7" fill="#7d9aaa">阻断</text>
+                                <!-- 阻断效果 -->
+                                <rect x="350" y="42" width="130" height="50" rx="8" fill="rgba(125,154,170,0.1)" stroke="#7d9aaa" stroke-width="2"/>
+                                <text x="415" y="60" text-anchor="middle" font-size="8" fill="#4a6070" font-weight="bold">✓ 阻断血管新生</text>
+                                <text x="415" y="75" text-anchor="middle" font-size="7" fill="#4a6070">切断肿瘤营养供应</text>
+                                <!-- 肿瘤细胞效果 -->
+                                <path d="M180 85 L200 85" stroke="#7d9aaa" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#apa3)"/>
+                                <defs><marker id="apa3" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#7d9aaa"/></marker></defs>
+                                <text x="190" y="80" text-anchor="middle" font-size="6" fill="#7d9aaa">抑制增殖</text>
+                                <text x="280" y="115" text-anchor="middle" font-size="8" fill="#4a6070">特异性抑制VEGFR-2活化 → 阻断肿瘤血管生成 → 抑制增殖 + 促进凋亡</text>
+                                <text x="280" y="132" text-anchor="middle" font-size="8" fill="#8b5a5a">三阴性乳腺癌使用较多</text>
+                            </svg>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">高血压</span>
+                            <span class="ae-tag severe">手足综合征</span>
+                            <span class="ae-tag severe">口腔溃疡</span>
+                            <span class="ae-tag severe">出血风险</span>
+                            <span class="ae-tag">蛋白尿</span>
+                            <span class="ae-tag">乏力</span>
+                            <span class="ae-tag">骨髓抑制</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于晚期胃癌三线及以上治疗；扩展用于晚期乳腺癌（VEGFR-2 TKI）</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>活动性出血、溃疡、肠穿孔、肠梗阻、大手术后30天内、药物不可控制的高血压、3-4级心功能不全（NYHA）、重度肝肾功能不全者禁用。妊娠期及对本品过敏者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="西达本胺 chidamide">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag target">HDACi</span>
+                        <h4>西达本胺 <span class="cn">Chidamide</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>口服（HR+ HER2-转移性乳腺癌）</span></div>
+                            <div class="info-box"><label>预处理</label><span>无需常规预处理</span></div>
+
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag severe">中性粒细胞减少</span>
+                            <span class="ae-tag severe">血小板减少</span>
+                            <span class="ae-tag">贫血</span>
+                            <span class="ae-tag">恶心</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于复发或难治性外周T细胞淋巴瘤；扩展用于HR+/HER2-乳腺癌（HDAC抑制剂）</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>妊娠期、重度血小板减少者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 六、细胞治疗                                 -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="section" id="cell">
+        <div class="section-head cell">
+            <div class="ic">🔬</div>
+            <div>
+                <h2>六、细胞治疗</h2>
+                <p>基因工程改造免疫细胞，精准杀伤肿瘤，为晚期实体瘤带来新希望。尚无产品正式获批用于乳腺癌。</p>
+            </div>
+        </div>
+        <div class="section-body">
+
+            <div class="subsection cell">
+                <div class="sub-title">CAR-T / CAR-NK / TIL / TCR-T（均处于临床试验阶段）</div>
+
+                <div class="drug-card" data-keywords="CAR-T chimer antigen receptor T">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag cell">CAR-T</span>
+                        <h4>嵌合抗原受体T细胞 <span class="cn">CAR-T (Chimeric Antigen Receptor T-cell)</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>探索靶点</label><span>mesothelin、EGFR、HER2、MUC1、TROP2、CLDN18.2等</span></div>
+                            <div class="info-box"><label>用法用量</label><span>个体化治疗（自体T细胞采集→CAR基因转导→体外扩增→回输）</span></div>
+
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">主要不良反应</div>
+                            <span class="ae-tag severe">细胞因子释放综合征（CRS）</span>
+                            <span class="ae-tag severe">免疫效应细胞相关神经毒性综合征（ICANS）</span>
+                            <span class="ae-tag">发热/低血压</span>
+                            <span class="ae-tag">B细胞耗竭（持续数月）</span>
+                            <span class="ae-tag">感染</span>
+
+                            <div class="info-box"><label>适应症</label><span>适用于复发/难治性血液肿瘤（白血病、淋巴瘤、骨髓瘤）；实体瘤CAR-T研究阶段</span></div>                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>活动性感染、严重器官功能不全、对细胞制品严重过敏者禁用（需临床评估）。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="CAR-NK natural killer">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag cell">CAR-NK</span>
+                        <h4>嵌合抗原受体NK细胞 <span class="cn">CAR-NK Cell Therapy</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>探索靶点</label><span>HER2、MUC1、NKG2D配体等</span></div>
+                            <div class="info-box"><label>优势</label><span>可异体使用（无需HLA匹配）、GVHD风险低</span></div>
+
+
+                            <div class="info-box"><label>适应症</label><span>适用于血液肿瘤及部分实体瘤（研究阶段）</span></div>                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">主要不良反应</div>
+                            <span class="ae-tag">CRS（轻于CAR-T）</span>
+                            <span class="ae-tag">ICANS罕见</span>
+                            <span class="ae-tag">GVHD（异体CAR-NK时）</span>
+                            <span class="ae-tag">感染</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="TIL tumor infiltrating lymphocyte">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag cell">TIL</span>
+                        <h4>肿瘤浸润淋巴细胞 <span class="cn">TIL (Tumor Infiltrating Lymphocytes)</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>机制</label><span>从手术切除肿瘤组织分离TIL→IL-2扩增→回输（含识别肿瘤新生抗原的T细胞）</span></div>
+                            <div class="info-box"><label>乳腺癌进展</label><span>转移性TNBC初步数据显示ORR约30-40%</span></div>
+
+
+                            <div class="info-box"><label>适应症</label><span>适用于转移性黑色素瘤；扩展用于宫颈癌、肺癌、乳腺癌等实体瘤（研究阶段）</span></div>                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">主要不良反应</div>
+                            <span class="ae-tag">发热/流感样症状</span>
+                            <span class="ae-tag">低血压</span>
+                            <span class="ae-tag">呼吸困难</span>
+                            <span class="ae-tag">肝功能异常</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drug-card" data-keywords="TCR-T T cell receptor">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag cell">TCR-T</span>
+                        <h4>T细胞受体工程化T细胞 <span class="cn">TCR-T (TCR-Engineered T-cell)</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>机制</label><span>基因工程使T细胞表达针对特定肿瘤抗原的TCR，识别人类白细胞抗原（HLA）呈递的胞内肽段</span></div>
+                            <div class="info-box"><label>探索靶点</label><span>MAGE-A3、NY-ESO-1等肿瘤-睾丸抗原</span></div>
+
+
+                            <div class="info-box"><label>适应症</label><span>适用于滑膜肉瘤、黑色素瘤等实体瘤（研究阶段）</span></div>
+
+                            <div class="info-box"><label>适应症</label><span>适用于晚期胃癌三线及以上治疗；扩展用于晚期乳腺癌（VEGFR-2 TKI）</span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">主要不良反应</div>
+                            <span class="ae-tag">细胞因子释放</span>
+                            <span class="ae-tag">肝脏毒性</span>
+                            <span class="ae-tag">TCR脱靶毒性</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="disclaimer">
+        <strong>免责声明：</strong>本页面内容仅供医学专业人士参考，不构成诊疗建议。所有药物使用须在有资质的临床医生指导下进行。药物信息可能随研究和临床实践更新而发生变化，请以最新药品说明书和国家药品监管部门（NMPA）批准的适应症为准。
+    </div>
+
+</div>
+
+<footer>土土金的乳腺癌药物库 · 数据更新至2025年 · 内容仅供参考</footer>
+
+<script>
+function toggleCard(el) {
+    el.closest('.drug-card').classList.toggle('open');
+}
+
+function scrollTo(id) {
+    var target = document.getElementById(id);
+    if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    document.querySelectorAll('.mnav-btn').forEach(function(b){ b.classList.remove('active'); });
+    event.target.classList.add('active');
+}
+
+function filterCards() {
+    var query = document.getElementById('searchInput').value.toLowerCase();
+    document.querySelectorAll('.drug-card').forEach(function(card) {
+        var keywords = card.getAttribute('data-keywords') || '';
+        var text = card.textContent.toLowerCase();
+        card.style.display = (keywords.includes(query) || text.includes(query)) ? '' : 'none';
+    });
+}
+
+// Scroll spy for mobile nav
+var sections = document.querySelectorAll('.section');
+window.addEventListener('scroll', function() {
+    var scrollPos = window.scrollY + 100;
+    sections.forEach(function(sec) {
+        if (scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
+            var id = sec.id;
+            document.querySelectorAll('.mnav-btn').forEach(function(b) {
+                b.classList.remove('active');
+                if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(id)) b.classList.add('active');
+            });
+        }
+    });
+});
+</script>
+
+</body>
