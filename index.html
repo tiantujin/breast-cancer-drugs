@@ -276,6 +276,65 @@
         .search-input:focus { border-color:var(--sage); }
         .search-input::placeholder { color:var(--text-light); }
 
+
+        /* ── INSURANCE BOX ── */
+        .info-box.insurance-box {
+            background: rgba(143,174,139,0.08);
+            border-left: 3px solid #8fae8b;
+        }
+        .info-box.insurance-box label {
+            color: #5a8a5a;
+            font-weight: 700;
+        }
+
+        /* ── SUPPORT SECTION ── */
+        .sub-title.support::before { background: #9d9088; }
+        .drug-card.support-card {
+            border-color: #d0c8c0;
+            background: #fafef8;
+        }
+        .tag.support {
+            background: rgba(157,144,136,0.12);
+            color: #9d9088;
+        }
+        .note-tag {
+            margin-top: 12px; padding: 6px 14px;
+            background: rgba(157,144,136,0.08);
+            border-radius: 8px; font-size: 0.8em; color: #9d9088;
+        }
+
+        /* ── BSA CALCULATOR ── */
+        .bsa-calc { background: var(--card); border-radius: var(--radius); padding: 28px; border: 1px solid var(--divider); }
+        .bsa-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+        .bsa-field label { display: block; font-weight: 700; margin-bottom: 6px; color: var(--text); font-size: 0.88em; }
+        .bsa-field input {
+            width: 100%; padding: 10px 16px; border: 1.5px solid var(--divider); border-radius: 10px;
+            font-size: 1.05em; outline: none; transition: border-color 0.2s; background: var(--card);
+            color: var(--text); box-sizing: border-box;
+        }
+        .bsa-field input:focus { border-color: var(--sage); }
+        .bsa-result {
+            background: linear-gradient(135deg, #f0f7f0, #e8f0e8); border-radius: 14px;
+            padding: 24px; text-align: center; margin-bottom: 24px; border: 1px solid #c8d8c0;
+        }
+        .bsa-number { font-size: 2.8em; font-weight: 800; color: #4a7a4a; letter-spacing: -0.02em; }
+        .bsa-formula { font-size: 0.82em; color: var(--text-light); margin-top: 4px; }
+        .bsa-drugs h3 { font-size: 1.0em; margin-bottom: 14px; }
+        .bsa-note { font-size: 0.8em; font-weight: 400; color: var(--text-light); }
+        .dose-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+        .dose-item {
+            display: flex; align-items: center; gap: 10px; padding: 12px 16px;
+            background: rgba(143,137,128,0.04); border-radius: 10px; border: 1px solid var(--divider);
+        }
+        .dose-name { font-weight: 700; font-size: 0.9em; min-width: 80px; }
+        .dose-formula { font-size: 0.78em; color: var(--text-light); flex: 1; }
+        .dose-result { font-weight: 800; font-size: 0.92em; color: var(--chemo); min-width: 110px; text-align: right; }
+        .bsa-warning {
+            font-size: 0.78em; color: var(--text-light); margin-top: 16px;
+            padding: 10px 14px; background: rgba(193,154,154,0.06);
+            border-radius: 8px; border-left: 3px solid var(--chemo);
+        }
+
         /* ── MOBILE NAV ── */
         .mobile-nav {
             position:sticky; top:0; z-index:100; background:rgba(247,244,240,0.95);
@@ -581,6 +640,8 @@
                         </div>
                     </div>
                 </div>
+
+                            <div class="info-box insurance-box"><label>医保限定支付</label><span>限：1.卵巢癌一线化疗及卵巢转移性癌治疗；2.曾用含阿霉素化疗的乳腺癌后续或复发治疗；3.与顺铂联合用于不能手术/放疗的非小细胞肺癌一线化疗。</span></div>
 
                 <div class="drug-card" data-keywords="白蛋白紫杉醇 nab-paclitaxel abraxane 白紫">
                     <div class="drug-head" onclick="toggleCard(this)">
@@ -1085,6 +1146,8 @@
                     </div>
                 </div>
 
+                            <div class="info-box insurance-box"><label>医保限定支付</label><span>限：1.联合内分泌治疗用于HR+/HER2-淋巴结阳性高复发风险早期乳腺癌辅助治疗；2.HR+/HER2-局部晚期或转移性乳腺癌：与芳香化酶抑制剂联用（绝经后）或与氟维司群联用（既往内分泌治疗后）。</span></div>
+
                 <div class="drug-card" data-keywords="戈舍瑞林 诺雷得 goserelin">
                     <div class="drug-head" onclick="toggleCard(this)">
                         <span class="tag endo">GnRH-a</span>
@@ -1108,6 +1171,8 @@
                         </div>
                     </div>
                 </div>
+
+                            <div class="info-box insurance-box"><label>医保限定支付</label><span>限：1.需要雄激素去势治疗的前列腺癌患者；2.可用激素治疗的绝经前期及围绝经期乳腺癌。</span></div>
 
             </div>
         </div>
@@ -1207,6 +1272,38 @@
             <div class="subsection adc">
                 <div class="sub-title">HER2 靶向ADC</div>
 
+
+                <div class="drug-card" data-keywords="帕妥珠曲妥珠单抗 赫双妥 pertuzumab trastuzumab PH FDC">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag adc">HER2 ADC</span>
+                        <h4>帕妥珠曲妥珠单抗注射液（赫双妥）<span class="cn">Pertuzumab &amp; Trastuzumab (Phesgo) · 赫双妥</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>用法用量</label><span>固定剂量复方制剂，皮下注射。负荷：帕妥珠单抗1200mg+曲妥珠单抗600mg；维持：每3周帕妥珠单抗600mg+曲妥珠单抗600mg皮下注射。</span></div>
+                            <div class="info-box"><label>预处理</label><span><span class="pretag">无需三联抗过敏预处理（皮下给药耐受性良好）</span></span></div>
+                        </div>
+                            <div class="info-box"><label>适应症</label><span>适用于HER2阳性早期/局部晚期或转移性乳腺癌患者（与静脉帕妥珠单抗+曲妥珠单抗适应症相同，剂型为皮下注射）。</span></div>
+                            <div class="info-box insurance-box"><label>医保限定支付</label><span>限：1.HER2阳性、局部晚期、炎性或早期乳腺癌(直径＞2cm或淋巴结阳性)的新辅助治疗；2.具有高复发风险HER2阳性早期乳腺癌辅助治疗；3.既往未接受过针对转移性乳腺癌抗HER2治疗或化疗的HER2阳性转移性或不可切除局部复发性乳腺癌患者。</span></div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag">注射部位反应</span>
+                            <span class="ae-tag">腹泻</span>
+                            <span class="ae-tag">恶心</span>
+                            <span class="ae-tag">脱发</span>
+                            <span class="ae-tag">乏力</span>
+                            <span class="ae-tag">肌肉骨骼疼痛</span>
+                            <span class="ae-tag">心脏毒性（左室功能不全，低于静脉制剂）</span>
+                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>对帕妥珠单抗、曲妥珠单抗或其任何成分过敏、严重心脏疾病患者禁用。</span>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="drug-card" data-keywords="曲妥珠单抗偶联DM1 T-DM1 恩美曲妥珠单抗 kadcyla">
                     <div class="drug-head" onclick="toggleCard(this)">
                         <span class="tag adc">HER2 ADC</span>
@@ -1234,6 +1331,8 @@
                         </div>
                     </div>
                 </div>
+
+                            <div class="info-box insurance-box"><label>医保限定支付</label><span>限：1.紫杉烷类联合曲妥珠单抗新辅助治疗后仍残存侵袭性病灶的HER2+早期乳腺癌辅助治疗；2.紫杉烷类和曲妥珠单抗治疗的HER2+不可切除局部晚期或转移性乳腺癌患者。</span></div>
 
                 <div class="drug-card" data-keywords="曲妥珠单抗偶联德曲妥珠单抗 DS-8201 优赫得 trastuzumab deruxtecan enhertu">
                     <div class="drug-head" onclick="toggleCard(this)">
@@ -1263,6 +1362,8 @@
                         </div>
                     </div>
                 </div>
+
+                            <div class="info-box insurance-box"><label>医保限定支付</label><span>限：1.既往接受过一种或一种以上抗HER2药物的不可切除或转移性HER2+乳腺癌；2.既往在转移性疾病阶段接受过至少一种系统治疗的，或辅助化疗后6个月内复发的，不可切除或转移性HER2低表达乳腺癌。</span></div>
 
                 <div class="drug-card" data-keywords="伊尼托单抗 inetetmab">
                     <div class="drug-head" onclick="toggleCard(this)">
@@ -1367,6 +1468,8 @@
                     </div>
                 </div>
 
+                            <div class="info-box insurance-box"><label>医保限定支付</label><span>限：1.HER2+早期乳腺癌辅助和新辅助治疗，支付不超过12个月；2.HER2+转移性乳腺癌。</span></div>
+
                 <div class="drug-card" data-keywords="帕妥珠单抗 帕捷特 pertuzumab perjeta">
                     <div class="drug-head" onclick="toggleCard(this)">
                         <span class="tag target">HER2 mAb</span>
@@ -1394,6 +1497,8 @@
                         </div>
                     </div>
                 </div>
+
+                            <div class="info-box insurance-box"><label>医保限定支付</label><span>限以下情况方可支付，且支付不超过12个月：1.HER2+局部晚期、炎性或早期乳腺癌新辅助治疗；2.具有高复发风险的HER2+早期乳腺癌辅助治疗。（选"是(记账)"，应与曲妥珠单抗和化疗联合）</span></div>
             </div>
 
             <div class="subsection target">
@@ -1425,6 +1530,8 @@
                         </div>
                     </div>
                 </div>
+
+                            <div class="info-box insurance-box"><label>医保限定支付</label><span>限：1.复发/转移性乳腺癌：联合卡培他滨，适用于HER2+既往未接受或接受过曲妥珠单抗者；与曲妥珠单抗和多西他赛联合，适用于HER2+晚期乳腺癌。2.早期或局部晚期乳腺癌：与曲妥珠单抗和多西他赛联合新辅助治疗。（选"是(记账)"，有联用要求）</span></div>
 
                 <div class="drug-card" data-keywords="拉帕替尼 lapatinib tykerb">
                     <div class="drug-head" onclick="toggleCard(this)">
@@ -1481,6 +1588,8 @@
                         </div>
                     </div>
                 </div>
+
+                            <div class="info-box insurance-box"><label>医保限定支付</label><span>限携带BRCA1/2突变的HER2-早期高风险乳腺癌辅助治疗（既往化疗后）；卵巢癌、胰腺癌维持治疗。</span></div>
 
                 <div class="drug-card" data-keywords="依维莫司 Afinitor everolimus">
                     <div class="drug-head" onclick="toggleCard(this)">
@@ -1757,6 +1866,264 @@
 
 </div>
 
+
+            <div class="section" id="support">
+                <div class="section-head chemo">
+                    <div class="ic">&#x1F4FA;</div>
+                    <div>
+                        <h2>支持治疗</h2>
+                        <p>辅助支持用药（非化疗类）：升白、升血小板、心脏保护等对症支持治疗。</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="subsection support">
+                        <div class="sub-title support">辅助支持用药（非化疗类）</div>
+                        
+                <div class="drug-card support-card" data-keywords="人血白蛋白 全血白蛋白 albumin">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag support">辅助用药</span>
+                        <h4>人血白蛋白 <span class="cn">Human Albumin</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>常规用途</label><span>一般不常规用于乳腺癌化疗。仅用于重度低蛋白血症（ALB&lt;25-30g/L伴腹水/胸水/肺水肿）、严重营养不良、肝硬化腹水急救。</span></div>
+                            <div class="info-box"><label>适应症</label><span>限抢救、重症或因肝硬化、癌症引起胸腹水的患者，且白蛋白低于30g/L。</span></div>
+                            <div class="info-box insurance-box"><label>医保限定支付</label><span>限抢救、重症或因肝硬化、癌症引起胸腹水的患者，且白蛋白低于30g/L。</span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag">输注反应</span><span class="ae-tag">发热</span><span class="ae-tag">寒战</span>
+                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>对白蛋白过敏、严重贫血、心衰、肺水肿禁用。</span>
+                        </div>
+                        <div class="note-tag">非化疗药，辅助支持用药</div>
+                    </div>
+                </div>
+
+
+
+                <div class="drug-card support-card" data-keywords="聚乙二醇化重组人粒细胞刺激因子 津优力 PEG-G-CSF 长效升白 升白针">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag support">辅助用药</span>
+                        <h4>聚乙二醇化重组人粒细胞刺激因子注射液（津优力） <span class="cn">PEG-rhG-CSF / 津优力</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>常规用途</label><span>化疗后中性粒细胞减少的预防。化疗结束后48小时皮下注射6mg/次，每周期一次。</span></div>
+                            <div class="info-box"><label>适应症</label><span>限既往化疗曾发生重度中性粒细胞减少的患者。（需符合非髓性恶性肿瘤患者）</span></div>
+                            <div class="info-box insurance-box"><label>医保限定支付</label><span>限既往化疗曾发生重度中性粒细胞减少的患者。（需符合非髓性恶性肿瘤患者）</span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag">骨痛</span><span class="ae-tag">发热</span><span class="ae-tag">乏力</span>
+                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>对G-CSF过敏、严重肝肾功能不全、妊娠期禁用。</span>
+                        </div>
+                        <div class="note-tag">非化疗药，辅助支持用药</div>
+                    </div>
+                </div>
+
+
+
+                <div class="drug-card support-card" data-keywords="硫培非格司亭 艾多 重组人粒细胞刺激因子 升白 长效">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag support">辅助用药</span>
+                        <h4>硫培非格司亭注射液（艾多） <span class="cn">SULATROPEGRASIM / 艾多</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>常规用途</label><span>化疗后中性粒细胞减少。化疗结束后48小时皮下注射100ug/kg或固定剂量。</span></div>
+                            <div class="info-box"><label>适应症</label><span>限既往化疗曾发生重度中性粒细胞减少的患者。（需符合非髓性恶性肿瘤患者）</span></div>
+                            <div class="info-box insurance-box"><label>医保限定支付</label><span>限既往化疗曾发生重度中性粒细胞减少的患者。（需符合非髓性恶性肿瘤患者）</span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag">骨痛</span><span class="ae-tag">发热</span><span class="ae-tag">肌肉酸痛</span>
+                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>对G-CSF过敏、严重肝肾功能不全禁用。</span>
+                        </div>
+                        <div class="note-tag">非化疗药，辅助支持用药</div>
+                    </div>
+                </div>
+
+
+
+                <div class="drug-card support-card" data-keywords="聚乙二醇化重组人粒细胞刺激因子 百拓维 新瑞白 升白针 长效">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag support">辅助用药</span>
+                        <h4>聚乙二醇化重组人粒细胞刺激因子注射液（百拓维/新瑞白） <span class="cn">PEG-rhG-CSF / 百拓维/新瑞白</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>常规用途</label><span>化疗后中性粒细胞减少的预防。</span></div>
+                            <div class="info-box"><label>适应症</label><span>限既往化疗曾发生重度中性粒细胞减少的患者。（需符合非髓性恶性肿瘤患者）</span></div>
+                            <div class="info-box insurance-box"><label>医保限定支付</label><span>限既往化疗曾发生重度中性粒细胞减少的患者。（需符合非髓性恶性肿瘤患者）</span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag">骨痛</span><span class="ae-tag">发热</span>
+                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>对G-CSF过敏禁用。</span>
+                        </div>
+                        <div class="note-tag">非化疗药，辅助支持用药</div>
+                    </div>
+                </div>
+
+
+
+                <div class="drug-card support-card" data-keywords="重组人血小板生成素 特比澳 升血小板 TPO 血小板减少">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag support">辅助用药</span>
+                        <h4>重组人血小板生成素注射液（特比澳） <span class="cn">rhTPO / 特比澳</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>常规用途</label><span>化疗后血小板减少。300U/kg或15000IU，每日一次皮下注射。</span></div>
+                            <div class="info-box"><label>适应症</label><span>限实体瘤化疗后血小板减少症或原发免疫性血小板减少症(ITP)。</span></div>
+                            <div class="info-box insurance-box"><label>医保限定支付</label><span>限实体瘤化疗后血小板减少症或原发免疫性血小板减少症(ITP)。</span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag">发热</span><span class="ae-tag">乏力</span><span class="ae-tag">头晕</span>
+                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>对TPO过敏、严重心脑血管疾病禁用。</span>
+                        </div>
+                        <div class="note-tag">非化疗药，辅助支持用药</div>
+                    </div>
+                </div>
+
+
+
+                <div class="drug-card support-card" data-keywords="右雷佐生 奥诺先 DEXRAZOXANE 心脏保护 多柔比星 阿霉素 蒽环">
+                    <div class="drug-head" onclick="toggleCard(this)">
+                        <span class="tag support">辅助用药</span>
+                        <h4>注射用右雷佐生（奥诺先） <span class="cn">Dexrazoxane / 奥诺先</span></h4>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="drug-body">
+                        <div class="drug-info">
+                            <div class="info-box"><label>常规用途</label><span>多柔比星心脏保护。剂量为多柔比星剂量的10倍，在多柔比星给药后30分钟内静脉输注。</span></div>
+                            <div class="info-box"><label>适应症</label><span>限在使用多柔比星后并有心脏损害临床证据。</span></div>
+                            <div class="info-box insurance-box"><label>医保限定支付</label><span>限在使用多柔比星后并有心脏损害临床证据。</span></div>
+                        </div>
+                        <div class="ae-section">
+                            <div class="ae-title">常见不良反应</div>
+                            <span class="ae-tag">恶心</span><span class="ae-tag">骨髓抑制</span><span class="ae-tag">注射部位疼痛</span>
+                        </div>
+                        <div class="contra">
+                            <label>禁忌症</label>
+                            <span>对本品过敏、妊娠期禁用。</span>
+                        </div>
+                        <div class="note-tag">非化疗药，辅助支持用药</div>
+                    </div>
+                </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- 体表面积及剂量计算器                        -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="section" id="calculator">
+            <div class="section-head" style="background:linear-gradient(135deg,#e8dfd6,#d0c8c0);">
+                <div class="ic" style="background:linear-gradient(135deg,#9d9088,#8a7d70);">&#x1F9EA;</div>
+                <div>
+                    <h2>体表面积 &amp; 剂量计算器</h2>
+                    <p>根据体重和身高自动计算体表面积（Mosteller公式）及化疗药物参考剂量</p>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="bsa-calc">
+                    <div class="bsa-inputs">
+                        <div class="bsa-field">
+                            <label>体重 (kg)</label>
+                            <input type="number" id="weight" placeholder="如：60" min="20" max="200" oninput="calcBSA()">
+                        </div>
+                        <div class="bsa-field">
+                            <label>身高 (cm)</label>
+                            <input type="number" id="height" placeholder="如：165" min="100" max="220" oninput="calcBSA()">
+                        </div>
+                    </div>
+                    <div class="bsa-result" id="bsaResult">
+                        <div class="bsa-number" id="bsaNumber">&#8212;</div>
+                        <div class="bsa-formula" id="bsaFormula"></div>
+                    </div>
+                    <div class="bsa-drugs">
+                        <h3>化疗药物剂量表 <span class="bsa-note">（标准剂量参考，实际用药须遵医嘱）</span></h3>
+                        <div class="dose-grid">
+                            <div class="dose-item">
+                                <span class="dose-name">表柔比星</span>
+                                <span class="dose-formula">60-100 mg/m<sup>2</sup></span>
+                                <span class="dose-result" id="dose-epi">&#8212;</span>
+                            </div>
+                            <div class="dose-item">
+                                <span class="dose-name">多柔比星</span>
+                                <span class="dose-formula">60 mg/m<sup>2</sup></span>
+                                <span class="dose-result" id="dose-dox">&#8212;</span>
+                            </div>
+                            <div class="dose-item">
+                                <span class="dose-name">紫杉醇</span>
+                                <span class="dose-formula">135-175 mg/m<sup>2</sup></span>
+                                <span class="dose-result" id="dose-pac">&#8212;</span>
+                            </div>
+                            <div class="dose-item">
+                                <span class="dose-name">多西他赛</span>
+                                <span class="dose-formula">75-100 mg/m<sup>2</sup></span>
+                                <span class="dose-result" id="dose-doc">&#8212;</span>
+                            </div>
+                            <div class="dose-item">
+                                <span class="dose-name">卡培他滨</span>
+                                <span class="dose-formula">1000-1250 mg/m<sup>2</sup> bid</span>
+                                <span class="dose-result" id="dose-cap">&#8212;</span>
+                            </div>
+                            <div class="dose-item">
+                                <span class="dose-name">吉西他滨</span>
+                                <span class="dose-formula">1000-1250 mg/m<sup>2</sup></span>
+                                <span class="dose-result" id="dose-gem">&#8212;</span>
+                            </div>
+                            <div class="dose-item">
+                                <span class="dose-name">环磷酰胺</span>
+                                <span class="dose-formula">500-1000 mg/m<sup>2</sup></span>
+                                <span class="dose-result" id="dose-ctx">&#8212;</span>
+                            </div>
+                            <div class="dose-item">
+                                <span class="dose-name">卡铂</span>
+                                <span class="dose-formula">AUC 5-6（Calvert公式）</span>
+                                <span class="dose-result" id="dose-cbp">&#8212;</span>
+                            </div>
+                            <div class="dose-item">
+                                <span class="dose-name">顺铂</span>
+                                <span class="dose-formula">60-75 mg/m<sup>2</sup></span>
+                                <span class="dose-result" id="dose-ddp">&#8212;</span>
+                            </div>
+                            <div class="dose-item">
+                                <span class="dose-name">长春瑞滨</span>
+                                <span class="dose-formula">25-30 mg/m<sup>2</sup></span>
+                                <span class="dose-result" id="dose-nvb">&#8212;</span>
+                            </div>
+                        </div>
+                        <p class="bsa-warning">&#x26A0; 以上为标准剂量参考，实际用药须遵医嘱调整。卡铂剂量需根据肾功能（肌酐清除率）计算AUC后确定。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 <footer>土土金的乳腺癌药物库 · 数据更新至2025年 · 内容仅供参考</footer>
 
 <script>
@@ -1774,11 +2141,13 @@ function scrollTo(id) {
 }
 
 function filterCards() {
-    var query = document.getElementById('searchInput').value.toLowerCase();
+    var query = document.getElementById('searchInput').value.toLowerCase().trim();
+    var hasQuery = query.length > 0;
     document.querySelectorAll('.drug-card').forEach(function(card) {
         var keywords = card.getAttribute('data-keywords') || '';
         var text = card.textContent.toLowerCase();
-        card.style.display = (keywords.includes(query) || text.includes(query)) ? '' : 'none';
+        var show = (!hasQuery) || (keywords.toLowerCase().includes(query)) || (text.includes(query));
+        card.style.display = show ? '' : 'none';
     });
 }
 
@@ -1796,6 +2165,31 @@ window.addEventListener('scroll', function() {
         }
     });
 });
+
+function calcBSA() {
+    var w = parseFloat(document.getElementById('weight').value);
+    var h = parseFloat(document.getElementById('height').value);
+    if (!w || !h || w <= 0 || h <= 0) {
+        document.getElementById('bsaNumber').textContent = '--';
+        document.getElementById('bsaFormula').textContent = '';
+        var ids = ['dose-epi','dose-dox','dose-pac','dose-doc','dose-cap','dose-gem','dose-ctx','dose-cbp','dose-ddp','dose-nvb'];
+        ids.forEach(function(id) { document.getElementById(id).textContent = '--'; });
+        return;
+    }
+    var bsa = Math.sqrt(h * w / 3600);
+    document.getElementById('bsaNumber').textContent = bsa.toFixed(2) + ' m²';
+    document.getElementById('bsaFormula').textContent = 'Mosteller公式: √(身高cm × 体重kg ÷ 3600)';
+    document.getElementById('dose-epi').textContent = (bsa * 80).toFixed(0) + ' mg';
+    document.getElementById('dose-dox').textContent = (bsa * 60).toFixed(0) + ' mg';
+    document.getElementById('dose-pac').textContent = (bsa * 175).toFixed(0) + ' mg';
+    document.getElementById('dose-doc').textContent = (bsa * 100).toFixed(0) + ' mg';
+    document.getElementById('dose-cap').textContent = (bsa * 1250).toFixed(0) + ' mg x2/日';
+    document.getElementById('dose-gem').textContent = (bsa * 1250).toFixed(0) + ' mg';
+    document.getElementById('dose-ctx').textContent = (bsa * 800).toFixed(0) + ' mg';
+    document.getElementById('dose-cbp').textContent = 'AUC 5: ' + (bsa * 5).toFixed(0) + ' mg';
+    document.getElementById('dose-ddp').textContent = (bsa * 75).toFixed(0) + ' mg';
+    document.getElementById('dose-nvb').textContent = (bsa * 30).toFixed(0) + ' mg';
+}
 </script>
 
 </body>
