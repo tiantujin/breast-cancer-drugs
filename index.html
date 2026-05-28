@@ -55,8 +55,10 @@
             content:''; position:absolute; bottom:-24px; left:0; right:0; height:48px;
             background:var(--bg); border-radius:50% 50% 0 0;
         }
-        .site-header .icon-flower {
-            width:56px; height:56px; margin:0 auto 18px; opacity:0.9;
+        .site-header .logo-mascot {
+            width:90px; height:90px; margin:0 auto 18px;
+            border-radius:50%; object-fit:cover;
+            box-shadow:0 4px 20px rgba(0,0,0,0.18);
         }
         .site-header h1 {
             font-size:2.6em; font-weight:700; letter-spacing:0.06em; margin-bottom:10px;
@@ -353,14 +355,7 @@
 <body>
 
 <div class="site-header">
-    <svg class="icon-flower" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="28" cy="28" r="28" fill="rgba(255,255,255,0.12)"/>
-        <path d="M28 12 Q32 20 28 28 Q24 20 28 12Z" fill="rgba(255,255,255,0.8)"/>
-        <path d="M28 12 Q20 20 28 28 Q36 20 28 12Z" fill="rgba(255,255,255,0.6)"/>
-        <path d="M28 28 Q20 36 28 44 Q36 36 28 28Z" fill="rgba(255,255,255,0.7)"/>
-        <path d="M28 28 Q36 20 44 28 Q36 36 28 28Z" fill="rgba(255,255,255,0.6)"/>
-        <circle cx="28" cy="28" r="5" fill="rgba(255,255,255,0.9)"/>
-    </svg>
+    <img class="logo-mascot" src="https://raw.githubusercontent.com/tiantujin/breast-cancer-drugs/main/logo.png" alt="土土金 mascot">
     <h1>土土金的乳腺癌药物库</h1>
     <p class="subtitle">化疗药 · 内分泌药 · 免疫检查点抑制剂 · ADC抗体偶联药 · 靶向药 · 细胞治疗<br>剂量 · 预处理 · 禁忌症 · 作用机制 · 不良反应</p>
     <div class="badges">
